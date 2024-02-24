@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.Windows.WinmdGenerator/0.55.45-preview">
+
+  <PropertyGroup>
+    <OutputWinmd>bin\Microsoft.Office.Outlook.MAPI.Win32.winmd</OutputWinmd>
+    <WinmdVersion>1.0.0.0</WinmdVersion>
+    <GenerateAssemblyVersionInfo>false</GenerateAssemblyVersionInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <MAPIHeaders Include="mapi-scrubbed\include\*.h"/>
+    <MAPILibs Include="mapi-scrubbed\importlib\olmapi32.dll.lib"/>
+
+    <ImportLibs Include="@(MAPILibs)" />
+
+    <Partition Include="main.cpp">
+      <TraverseFiles>@(MAPIHeaders)</TraverseFiles>
+      <Namespace>Microsoft.Office.Outlook.MAPI.Win32</Namespace>
+      <ExcludeFromCrossarch>true</ExcludeFromCrossarch>
+    </Partition>
+  </ItemGroup>
+
+</Project>

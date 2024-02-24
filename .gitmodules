@@ -1,0 +1,3 @@
+[submodule "mapi-scrubbed"]
+	path = mapi-scrubbed
+	url = https://github.com/wravery/mapi-scrubbed
